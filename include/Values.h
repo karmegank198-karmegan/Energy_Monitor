@@ -1,0 +1,30 @@
+#pragma once
+
+extern float wattstot;
+extern float wattsrphase;
+extern float wattsyphase;
+extern float wattsbphase;
+extern float PFAverage;
+extern float pfrphase;
+extern float pfyphase;
+extern float pfbphase;
+extern float vatotal;
+extern float varphase;
+extern float vayphase;
+extern float vabphase;
+extern float VLLAverage;
+extern float vryphase;
+extern float vybphase;
+extern float vbrphase;
+extern float VLNAverage;
+extern float vrphase;
+extern float vyphase;
+extern float vbphase;
+extern float currenttotal;
+extern float currentrphase;
+extern float currentyphase;
+extern float currentbphase;
+extern float Frequency;
+extern float wh;
+extern float vah;
+extern float loadhours;
