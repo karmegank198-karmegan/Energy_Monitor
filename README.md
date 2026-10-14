@@ -1,6 +1,6 @@
-# ⚡ IoT-Based Smart Energy Meter Monitoring System
+ # IoT-Based Smart Energy Meter Monitoring System
 
-## 📌 Project Overview
+# Project Overview
 
 The **IoT-Based Smart Energy Meter Monitoring System** is designed to collect electricity consumption readings from energy meters and transmit the data to a cloud server for centralized monitoring and visualization.
 
@@ -10,7 +10,7 @@ The data is transmitted to the **BITSathy cloud server**, where it is made avail
 
 This approach enables remote monitoring of energy consumption without requiring users to manually collect readings from individual meters.
 
-## 🎯 Project Objectives
+# Project Objectives
 
 - Retrieve energy meter readings through RS485 serial communication.
 - Interface the energy meter with an ESP32 using an RS485-to-TTL converter.
@@ -21,13 +21,13 @@ This approach enables remote monitoring of energy consumption without requiring 
 - Support remote access to energy monitoring information.
 - Provide a foundation for analyzing historical electricity consumption.
 
-## 🏗️ System Architecture
+# System Architecture
 
 The system consists of an energy meter, communication interface, embedded controller, cloud communication protocol, cloud server, and monitoring dashboard.
 
-### System Block Diagram
+# System Block Diagram
 
-```text
+ 
         Electrical Loads
                |
                v
@@ -57,17 +57,15 @@ The system consists of an energy meter, communication interface, embedded contro
                |
                v
        Data Visualization
-```
 
-### Data Flow
+
+# Data Flow
 
 **Energy Meter → RS485 → RS485-to-TTL Converter → ESP32 → Wi-Fi → MQTT → BITSathy Cloud Server → Dashboard**
 
----
+# Hardware Components
 
-## 🔌 Hardware Components
-
-### 1. Energy Meter
+# 1. Energy Meter
 
 The energy meter measures electrical parameters and provides readings through its RS485 communication interface.
 
@@ -82,7 +80,7 @@ Depending on the meter model, the available readings may include:
 
 The exact parameters depend on the energy meter's specifications and communication protocol.
 
-### 2. RS485-to-TTL Converter
+# 2. RS485-to-TTL Converter
 
 RS485 is a serial communication standard commonly used in industrial monitoring systems.
 
@@ -96,7 +94,7 @@ Its main functions are:
 
 The converter must be compatible with the selected meter and ESP32 logic voltage.
 
-### 3. ESP32 Microcontroller
+# 3. ESP32 Microcontroller
 
 The ESP32 acts as the main embedded controller.
 
@@ -110,7 +108,7 @@ It is responsible for:
 
 The ESP32 provides the connection between the energy meter and the cloud monitoring system.
 
-### 4. Wi-Fi Connectivity
+# 4. Wi-Fi Connectivity
 
 The ESP32 uses Wi-Fi to establish a network connection with the cloud infrastructure.
 
@@ -118,9 +116,9 @@ This allows energy readings to be transmitted remotely without requiring a direc
 
 ---
 
-## 🔄 Communication Technologies
+# Communication Technologies
 
-### 1. RS485 Serial Communication
+# 1. RS485 Serial Communication
 
 RS485 is used for communication between the energy meter and the ESP32 through an RS485-to-TTL converter.
 
@@ -138,7 +136,7 @@ The communication settings must match the meter's requirements, including:
 
 **Note:** Modbus RTU should only be specified as the actual protocol if it is supported and used by the selected energy meter.
 
-### 2. UART Communication
+# 2. UART Communication
 
 The ESP32 communicates with the TTL side of the converter using a UART interface.
 
@@ -146,7 +144,7 @@ UART provides serial transmission and reception between the ESP32 and the conver
 
 The ESP32 reads the incoming data and processes it according to the meter's communication protocol.
 
-### 3. MQTT Protocol
+# 3. MQTT Protocol
 
 MQTT stands for **Message Queuing Telemetry Transport**.
 
@@ -154,7 +152,7 @@ It is a lightweight messaging protocol commonly used in IoT applications.
 
 In this project, MQTT is used to transmit energy meter readings from the ESP32 to the cloud infrastructure.
 
-#### How MQTT Works
+# How MQTT Works
 
 1. The ESP32 connects to the network.
 2. It establishes a connection with the configured MQTT broker.
@@ -167,7 +165,7 @@ MQTT reduces communication overhead and is suitable for applications that period
 
 ---
 
-## ☁️ BITSathy Cloud Integration
+# BITSathy Cloud Integration
 
 The BITSathy cloud server acts as the centralized destination for the energy monitoring data.
 
@@ -175,9 +173,9 @@ After receiving readings from the energy meter, the ESP32 publishes the informat
 
 The cloud infrastructure processes the incoming information and makes the data available to the monitoring application.
 
-### Cloud Processing Workflow
+# Cloud Processing Workflow
 
-```text
+
 ESP32
   |
   v
@@ -197,19 +195,19 @@ Dashboard Data Retrieval
   |
   v
 Energy Monitoring Dashboard
-```
+
 
 The exact implementation of data reception, storage, and retrieval depends on the BITSathy cloud services and APIs configured for the project.
 
----
 
-## 📊 Energy Monitoring Dashboard
+
+# Energy Monitoring Dashboard
 
 The energy monitoring dashboard provides a centralized interface for viewing the energy meter readings received by the cloud server.
 
 It allows users to monitor energy information without connecting directly to the physical meter.
 
-### Dashboard Features
+# Dashboard Features
 
 Depending on the configured dashboard, the system can display:
 
@@ -220,7 +218,7 @@ Depending on the configured dashboard, the system can display:
 - Graphical representations of energy consumption.
 - Consumption trends over selected time periods.
 
-### Dashboard Workflow
+# Dashboard Workflow
 
 1. The energy meter provides readings through RS485.
 2. The ESP32 receives the data through the TTL converter.
@@ -233,41 +231,41 @@ This arrangement enables centralized monitoring of energy consumption from conne
 
 ---
 
-## ⚙️ Working Principle
+# Working Principle
 
 The complete system operates through the following steps.
 
-### Step 1: Read Energy Meter Data
+# Step 1: Read Energy Meter Data
 
 The energy meter measures electrical parameters and makes its readings available through its RS485 interface.
 
-### Step 2: Transfer Data Through the Converter
+# Step 2: Transfer Data Through the Converter
 
 The RS485-to-TTL converter interfaces the meter's RS485 signals with the ESP32 UART interface.
 
-### Step 3: Process Data Using the ESP32
+# Step 3: Process Data Using the ESP32
 
 The ESP32 receives the serial communication data and extracts the required readings according to the meter's communication protocol.
 
-### Step 4: Connect to Wi-Fi
+# Step 4: Connect to Wi-Fi
 
 The ESP32 connects to the configured wireless network to establish internet connectivity.
 
-### Step 5: Publish Data Using MQTT
+# Step 5: Publish Data Using MQTT
 
 The ESP32 publishes the collected readings to the configured MQTT broker and topic.
 
-### Step 6: Process Data on the Cloud Server
+# Step 6: Process Data on the Cloud Server
 
 The BITSathy cloud infrastructure receives the published readings and processes them according to the configured application.
 
-### Step 7: Display Data on the Dashboard
+# Step 7: Display Data on the Dashboard
 
 The dashboard retrieves the available energy information and displays it for monitoring and analysis.
 
 ---
 
-## 💻 Software and Development Tools
+# Software and Development Tools
 
 | Component | Technology |
 |---|---|
@@ -282,11 +280,11 @@ The dashboard retrieves the available energy information and displays it for mon
 | Development environment | PlatformIO |
 | Version control | Git and GitHub |
 
----
 
-## 📁 Repository Structure
 
-```text
+# Repository Structure
+
+
 Energy_Monitor/
 │
 ├── .vscode/
@@ -310,9 +308,9 @@ Energy_Monitor/
 ├── .gitignore
 ├── platformio.ini
 └── README.md
-```
 
-### File Descriptions
+
+# File Descriptions
 
 | File | Description |
 |---|---|
@@ -325,9 +323,9 @@ Energy_Monitor/
 
 ---
 
-## 🚀 Getting Started
+# Getting Started
 
-### Prerequisites
+# Prerequisites
 
 Before setting up the project, ensure that you have:
 
@@ -340,19 +338,17 @@ Before setting up the project, ensure that you have:
 - Visual Studio Code.
 - PlatformIO extension.
 
-### Step 1: Clone the Repository
+# Step 1: Clone the Repository
 
-```bash
 git clone https://github.com/karmegank198-karmegan/Energy_Monitor.git
-```
 
 Navigate to the project directory:
 
-```bash
-cd Energy_Monitor
-```
 
-### Step 2: Configure the Hardware
+cd Energy_Monitor
+
+
+# Step 2: Configure the Hardware
 
 Connect the energy meter to the RS485 side of the converter.
 
@@ -362,18 +358,16 @@ Verify the power supply, logic voltage, signal connections, and communication se
 
 The exact wiring depends on the meter, converter, and ESP32 board.
 
-### Step 3: Configure the Firmware
+# Step 3: Configure the Firmware
 
 Open the project in Visual Studio Code with PlatformIO installed.
 
 Review the following files:
 
-```text
 platformio.ini
 src/main.cpp
 include/Get_data.h
 include/Values.h
-```
 
 Configure the appropriate:
 
@@ -386,23 +380,19 @@ Configure the appropriate:
 - MQTT topic.
 - Cloud message format.
 
-### Step 4: Build the Firmware
+# Step 4: Build the Firmware
 
 Run:
 
-```bash
 pio run
-```
 
-### Step 5: Upload the Firmware
+# Step 5: Upload the Firmware
 
 Connect the ESP32 to your computer and execute:
 
-```bash
 pio run --target upload
-```
 
-### Step 6: Verify Communication
+# Step 6: Verify Communication
 
 After uploading the firmware:
 
@@ -414,7 +404,7 @@ After uploading the firmware:
 6. Confirm that readings are published to the correct MQTT topic.
 7. Check that the BITSathy cloud server receives the data.
 
-### Step 7: View the Dashboard
+# Step 7: View the Dashboard
 
 Open the configured energy monitoring dashboard.
 
@@ -424,7 +414,7 @@ The dashboard URL and access permissions depend on the deployed BITSathy monitor
 
 ---
 
-## ✅ Advantages
+# Advantages
 
 - Enables remote monitoring of energy meter readings.
 - Uses RS485 for communication with compatible energy meters.
@@ -437,7 +427,7 @@ The dashboard URL and access permissions depend on the deployed BITSathy monitor
 
 ---
 
-## 🔮 Future Enhancements
+# Future Enhancements
 
 Possible future improvements include:
 
@@ -452,7 +442,7 @@ Possible future improvements include:
 
 ---
 
-## 📝 Conclusion
+# Conclusion
 
 The IoT-Based Smart Energy Meter Monitoring System integrates **RS485 serial communication, an RS485-to-TTL converter, ESP32, Wi-Fi, MQTT, and the BITSathy cloud server** to enable remote energy monitoring.
 
@@ -464,7 +454,7 @@ This system provides a practical approach to centralized energy monitoring and e
 
 ---
 
-## 👨‍💻 Author
+# Author
 
 **Karmegan K**
 
